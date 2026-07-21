@@ -1,10 +1,8 @@
-import dotenv from "dotenv";
+import "./config/envConfig.js";
+
+console.log("Bucket name :",process.env.BUCKET_NAME)
 import connectDB from "./db/index.js";
 import app from "./app.js";
-
-dotenv.config({
-    path: "./.env"
-});
 
 connectDB()
 .then(() => {

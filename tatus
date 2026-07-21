@@ -1,0 +1,23 @@
+[33mcommit 75be3347a719d3a58215555482eac41726be4cc3[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: Aditi Govardhane <aditigovardhane.111@gmail.com>
+Date:   Tue Jul 14 12:55:57 2026 +0530
+
+    Add register user functionality
+
+index.js
+package-lock.json
+package.json
+public/temp
+src/app.js
+src/constants.js
+src/controllers/user.controller.js
+src/db/index.js
+src/index.js
+src/middlewares/multer.middleware.js
+src/models/user.model.js
+src/models/video.model.js
+src/routes/user.routes.js
+src/utils/apiError.js
+src/utils/apiResponse.js
+src/utils/asyncHandler.js
+src/utils/cloudinary.js
