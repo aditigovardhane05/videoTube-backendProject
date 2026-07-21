@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { loginUser, logOutUser, registerUser ,refreshAccessToken} from "../controllers/user.controller.js";
+import { loginUser, logOutUser, registerUser ,refreshAccessToken, updateUserAvatar} from "../controllers/user.controller.js";
 import upload from "../config/multerS3Config.js";
 import fs from "fs"
 import { veryfyJWT } from "../middlewares/auth.middleware.js";
@@ -25,5 +25,7 @@ userRouter.route("/login").post(loginUser)
 
 userRouter.route("/logout").post(veryfyJWT, logOutUser)
 userRouter.route("/refresh-token").post(refreshAccessToken)
+
+userRouter.route("/updateAvatar".post(upload.single("image"),updateUserAvatar))
 
 export default userRouter
