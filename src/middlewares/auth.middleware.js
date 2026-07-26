@@ -6,7 +6,7 @@ import { User } from "../models/user.model.js";
 export const veryfyJWT=asyncHandler(async (req,res,next)=>{
 
     console.log("Cookies:", req.cookies);
-console.log("Authorization:", req.header("Authorization"));
+    console.log("Authorization:", req.header("Authorization"));
    try {
      const token = req.cookies?.accessToken || req.header("Authorization")?.replace("Bearer ","")
  
