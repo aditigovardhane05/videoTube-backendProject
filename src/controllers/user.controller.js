@@ -155,7 +155,9 @@ const logOutUser = asyncHandler(async (req,res)=>{
 })
 
 const refreshAccessToken = asyncHandler(async(req,res)=>{
-    const incomingRefreshToken = req.cookies.refrehToken || req.body.refrehToken
+    const incomingRefreshToken = req.cookies.refreshToken || req.body.refreshToken
+
+    console.log("Refresh Token -> ",incomingRefreshToken)
 
     if(!incomingRefreshToken){
         new ApiError(401,"Unauthorised request")
@@ -170,7 +172,7 @@ const refreshAccessToken = asyncHandler(async(req,res)=>{
             new ApiError(401,"Unauthorised token")
         }
     
-        if(decodedToken !== user?.refrehToken){
+        if(decodedToken !== user?.refreshToken){
             new ApiError(401,"RefreshToken is expired or used")
         }
     
@@ -231,6 +233,8 @@ const updateAccountDetails = asyncHandler(async(req,res)=>{
         },
         {new:true}
     ).select("-password")
+
+    console.log(user)
 
     return res.status(200).json(
         new ApiResponse(200,user,"Acount details updated successfully")
