@@ -17,6 +17,8 @@ import fs from "fs"
 
 import { veryfyJWT } from "../middlewares/auth.middleware.js";
 
+console.log("Video router loaded")
+
 const userRouter = Router()
 console.log("User router loaded");
 

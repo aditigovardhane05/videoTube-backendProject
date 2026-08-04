@@ -15,6 +15,8 @@ export const veryfyJWT=asyncHandler(async (req,res,next)=>{
      }
  
      const decodedToken = jwt.verify(token , process.env.ACCESS_TOKEN_SECRET)
+
+     console.log("Token extracted")
      const user =  await User.findById(decodedToken?._id).select("-password -refreshToken")
  
      if(!user){
@@ -22,6 +24,10 @@ export const veryfyJWT=asyncHandler(async (req,res,next)=>{
      }
  
      req.user = user
+
+     console.log("User",user)
+
+     console.log("Calling next")
  
      next()
    } catch (error) {
